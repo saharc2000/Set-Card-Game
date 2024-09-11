@@ -1,48 +1,54 @@
-Set Game Implementation
-Overview
-This implementation of the Set card game features a 3x4 grid of cards drawn from a deck. Players aim to identify "legal sets" of three cards based on the following features:
+# **Set Game Implementation**
 
-Color: Red, Green, Purple
-Number: 1, 2, 3
-Shape: Squiggle, Diamond, Oval
-Shading: Solid, Partial, Empty
-Gameplay
-Card Setup:
+## **Overview**
 
-12 cards are dealt face up on a 3x4 grid.
-Finding Sets:
+This implementation of the **Set** card game features a 3x4 grid of cards drawn from a deck. Players aim to identify "legal sets" of three cards based on the following features:
 
-Players place tokens on cards they think form a valid set.
-When placing the third token, the dealer checks the set.
-Set Verification:
+- **Color:** Red, Green, Purple
+- **Number:** 1, 2, 3
+- **Shape:** Squiggle, Diamond, Oval
+- **Shading:** Solid, Partial, Empty
 
-Legal Set: Cards are removed, replaced with new ones, and the player earns a point. The player is then frozen briefly.
-Illegal Set: The player is penalized and cannot place or remove tokens for a period.
-Card Replenishment:
+## **Gameplay**
 
-If no legal sets are available, the dealer reshuffles and deals new cards every minute.
-End of Game:
+1. **Card Setup:**
+   - 12 cards are dealt face up on a 3x4 grid.
 
-The game ends when no legal sets remain. The player with the most points wins.
-Implementation Details
-Threads:
+2. **Finding Sets:**
+   - Players place tokens on cards they think form a valid set.
+   - When placing the third token, the dealer checks the set.
 
-One per player and an additional one for non-human players.
-Threads activate only for specific tasks like key input or display updates.
-Card Representation:
+3. **Set Verification:**
+   - **Legal Set:** Cards are removed, replaced with new ones, and the player earns a point. The player is then frozen briefly.
+   - **Illegal Set:** The player is penalized and cannot place or remove tokens for a period.
 
-Cards are numbered 0-80, with each having four features, each with three possible values.
-Table:
+4. **Card Replenishment:**
+   - If no legal sets are available, the dealer reshuffles and deals new cards every minute.
 
-Manages the grid and token placements.
-Players:
+5. **End of Game:**
+   - The game ends when no legal sets remain. The player with the most points wins.
 
-Player threads manage token actions.
-Non-human players are simulated by threads generating random actions.
-Dealer:
+## **Implementation Details**
 
-Manages game flow, including dealing, shuffling, and checking sets.
-Ensures fair play and handles simultaneous set claims.
-Game Flow
-The dealer oversees the game, ensuring smooth operation and correct event logging.
-Threads are used efficiently, waking only when necessary.
+- **Threads:**
+  - One per player and an additional one for non-human players.
+  - Threads activate only for specific tasks like key input or display updates.
+
+- **Card Representation:**
+  - Cards are numbered 0-80, with each having four features, each with three possible values.
+
+- **Table:**
+  - Manages the grid and token placements.
+
+- **Players:**
+  - Player threads manage token actions.
+  - Non-human players are simulated by threads generating random actions.
+
+- **Dealer:**
+  - Manages game flow, including dealing, shuffling, and checking sets.
+  - Ensures fair play and handles simultaneous set claims.
+
+## **Game Flow**
+
+- The dealer oversees the game, ensuring smooth operation and correct event logging.
+- Threads are used efficiently, waking only when necessary.
