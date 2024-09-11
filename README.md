@@ -9,6 +9,11 @@ This implementation of the **Set** card game features a 3x4 grid of cards drawn 
 - **Shape:** Squiggle, Diamond, Oval
 - **Shading:** Solid, Partial, Empty
 
+## **Objectives**
+
+- **Concurrent Programming:** Implemented using Java threads and synchronization to handle concurrent gameplay and manage shared resources efficiently. This ensures that multiple players can interact with the game simultaneously without causing data inconsistencies or performance bottlenecks. The use of threads allows for real-time updates and responsiveness, which is crucial for a smooth gaming experience. Synchronization mechanisms, such as locks, are employed to coordinate access to shared game data and ensure that actions taken by one player are reflected accurately and in a timely manner across the entire game state.
+
+
 ## **Gameplay**
 
 1. **Card Setup:**
@@ -32,7 +37,6 @@ This implementation of the **Set** card game features a 3x4 grid of cards drawn 
 
 - **Threads:**
   - One per player and an additional one for non-human players.
-  - Threads activate only for specific tasks like key input or display updates.
 
 - **Card Representation:**
   - Cards are numbered 0-80, with each having four features, each with three possible values.
